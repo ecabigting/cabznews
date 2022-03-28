@@ -27,7 +27,7 @@ export default {
 
     onMounted(()=>{
       store.dispatch("FetchPosts",3)
-      const query = '*[_type === "post"]'
+      const query = '*[_type == "post"]'
       subscription.value = sanity
         .listen(query)
         .subscribe(update => {

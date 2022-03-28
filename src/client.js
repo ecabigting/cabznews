@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
-const sanityClient = require("@sanity/client");
-const client = sanityClient({
+import sanityClient from "@sanity/client"
+
+export default sanityClient({
   projectId: "xixgn0gf",
-  database: "live",
   apiVersion: "2021-03-25",
-  useCdn: false,
+  useCdn: true,
+  dataset:"production"
 });
 
-export default client;
