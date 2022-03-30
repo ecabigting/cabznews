@@ -33,7 +33,13 @@ export default {
         .subscribe(update => {
             switch(update.transition) {
               case 'update' : 
-                console.log("Post Updated!",update)
+
+                sanity.getDocument(update.result.author._ref).then(author => {
+                  store.dispatch('UpdatePost',{
+                    ...update.result, author
+                  })
+                })
+                
                 break;
               case 'appear':
                 console.log("Post Appeared!",update)
