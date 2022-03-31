@@ -40,6 +40,9 @@ export default createStore({
       commit('SET_POSTS',this.state.posts.map(
         p => p._id === post._id ? post : p
       ))
+    },
+    AddNewPost({ commit },post){
+      commit('SET_POSTS',[...this.state.posts,post])
     }
   },
 });

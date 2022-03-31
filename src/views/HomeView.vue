@@ -42,7 +42,11 @@ export default {
                 
                 break;
               case 'appear':
-                console.log("Post Appeared!",update)
+                sanity.getDocument(update.result.author._ref).then(author => {
+                  store.dispatch('AddNewPost',{
+                    ...update.result, author
+                  })
+                })
                 break;
               case 'disappear':
                 console.log("Post Disappeared!",update)
