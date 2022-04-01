@@ -43,6 +43,11 @@ export default createStore({
     },
     AddNewPost({ commit },post){
       commit('SET_POSTS',[...this.state.posts,post])
+    },
+    RemovePost({commit},id){
+      commit('SET_POSTS',this.state.posts.map(
+        p => p._id != id
+      ))
     }
   },
 });
