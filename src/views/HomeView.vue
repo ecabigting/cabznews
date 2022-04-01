@@ -48,8 +48,7 @@ export default {
             });
             break;
           case "disappear":
-            
-            store.dispatch('RemovePost',update.documentId);
+            store.dispatch("RemovePost", update.documentId);
 
             break;
         }

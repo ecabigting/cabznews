@@ -10,10 +10,7 @@
       </div>
     </div>
 
-    
-    <h1 class="text-center text-2xl uppercase font-light tracking-widest">
-      cabznews
-    </h1>
+    <h1 class="text-center text-2xl uppercase font-light tracking-widest">cabznews</h1>
   </header>
 </template>
 
@@ -25,12 +22,12 @@ export default {
   setup() {
     const store = useStore();
     const ToggleMenu = () => {
-      store.dispatch('ToggleMenu')
-    }
+      store.dispatch("ToggleMenu");
+    };
 
     return {
       menu_is_active: computed(() => store.state.menu_is_active),
-      ToggleMenu
+      ToggleMenu,
     };
   },
 };
@@ -40,7 +37,7 @@ export default {
 .menu-toggle {
   position: absolute;
   top: 1rem;
-  left:1rem;
+  left: 1rem;
   width: 32px;
   height: 32px;
   cursor: pointer;
@@ -48,21 +45,21 @@ export default {
 
 .hamburger {
   position: absolute;
-  top:50%;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   width: 32px;
   height: 32px;
 }
 
 .hamburger span {
   position: absolute;
-  top:50%;
+  top: 50%;
 }
 
-.hamburger span, 
+.hamburger span,
 .hamburger span:before,
-.hamburger span:after  {
+.hamburger span:after {
   position: absolute;
   width: 100%;
   height: 4px;
@@ -72,8 +69,8 @@ export default {
 }
 
 .hamburger span:before,
-.hamburger span:after  {
-  content: '';
+.hamburger span:after {
+  content: "";
 }
 
 .hamburger span:before {
@@ -89,13 +86,12 @@ export default {
 }
 
 .menu-toggle.is_active .hamburger > span:before {
-  top:0;
+  top: 0;
   transform: rotate(0deg);
 }
 
 .menu-toggle.is_active .hamburger > span:after {
-  top:0;
+  top: 0;
   transform: rotate(90deg);
 }
-
 </style>
