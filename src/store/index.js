@@ -24,6 +24,12 @@ export default createStore({
     SET_POSTS(state, posts) {
       state.posts = posts;
     },
+    SET_TOTAL_POSTS(state, total_posts) {
+      state.total_posts = total_posts;
+    },
+    INCREMENT_TOTAL_POSTS(state, increment = 3) {
+      state.total_posts += increment;
+    },
   },
   actions: {
     ToggleMenu({ commit }) {
@@ -35,6 +41,11 @@ export default createStore({
       sanity.fetch(query).then((posts) => {
         commit("SET_POSTS", posts);
       });
+
+      const count_query = 'count(*[_type == "post"])';
+      sanity.fetch(count_query).then((posts) => {
+        commit("SET_TOTAL_POSTS", posts);
+      });
     },
     UpdatePosts({ commit }, post) {
       commit(
@@ -44,12 +55,15 @@ export default createStore({
     },
     AddNewPost({ commit }, post) {
       commit("SET_POSTS", [...this.state.posts, post]);
+      commit("INCREMENT_TOTAL_POSTS");
     },
     RemovePost({ commit }, id) {
       commit(
         "SET_POSTS",
-        this.state.posts.map((p) => p._id != id)
+        this.state.posts.map((p) => p._id !== id)
       );
+
+      commit("INCREMENT_TOTAL_POSTS",-1);
     },
   },
 });

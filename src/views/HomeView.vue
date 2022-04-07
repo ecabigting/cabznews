@@ -5,6 +5,10 @@
       <div class="grid gap-4">
         <PostCard v-for="(posts, i) in posts" :key="i" :post="post" />
       </div>
+
+      <button v-if="$store.state.total_posts > posts.length" @click="$store.dispatch('LoadMorePosts', 3)" class="btn mt-10">
+        Load More ({{ $store.state.total_posts}})
+      </button>
     </section>
   </main>
 </template>
