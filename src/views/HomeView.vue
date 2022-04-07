@@ -7,7 +7,7 @@
       </div>
 
       <button v-if="$store.state.total_posts > posts.length" @click="$store.dispatch('LoadMorePosts', 3)" class="btn mt-10">
-        Load More ({{ $store.state.total_posts}})
+        Load More ({{ $store.state.total_posts - posts.length }})
       </button>
     </section>
   </main>
