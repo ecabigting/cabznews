@@ -1,13 +1,23 @@
 <template>
     <main class="post-page">
-        <!-- Image -->
-        <img src="" alt="">
-        <!-- Back button -->
-        <button>Back</button>
-        <!-- title -->
-        <!-- Excerpt -->
-        <!-- content -->
-        <!-- author details -->
+        <section v-if="post" class="container mx-auto p-4">
+            <img :src="CreateURL(post.image,1280,300)" class="w-full mb-8"/>
+            <button @click="$router.back()"
+            class="flex items-center text-lg text-green-500 hover:text-green-700 duration-300 mb-4">
+                <span class="material-icon text-lg mr-1">
+                    keyboard_double_arrow_left
+                </span> Back 
+            </button>
+            <h1 class="text-3xl md:text-5xl mb-8">{{post.title}}</h1>
+            <p class="text-gray-500 italic mb-8">{{post.excerpt}}</p>
+            <p v-html="TextToHTML(post.content)"></p>
+        </section>
+        
+        <section v-else>
+            <p class="text-white italic text-2xl">
+                Loading...
+            </p>
+        </section>
     </main>
 </template>
 
@@ -15,7 +25,7 @@
 import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import sanity from '../../client'
-import { CreateURL } from '../../utils'
+import { CreateURL,TextToHTML } from '../../utils'
 
 
 export default {
@@ -35,7 +45,8 @@ export default {
 
         return {
             post,
-            CreateURL
+            CreateURL,
+            TextToHTML
         }
     }
 }
