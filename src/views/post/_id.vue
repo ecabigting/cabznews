@@ -2,12 +2,11 @@
     <main class="post-page">
         <section v-if="post" class="container mx-auto p-4">
             <img :src="CreateURL(post.image,1280,300)" class="w-full mb-8"/>
-            <button @click="$router.back()"
-            class="flex items-center text-lg text-green-500 hover:text-green-700 duration-300 mb-4">
-                <span class="material-icon text-lg mr-1">
-                    keyboard_double_arrow_left
-                </span> Back 
-            </button>
+            <button 
+				@click="$router.back()" 
+				class="flex items-center text-lg text-green-500 hover:text-green-600 duration-300 mb-4">
+				<span class="material-icons text-lg mr-1">keyboard_double_arrow_left</span> Back
+			</button>
             <h1 class="text-3xl md:text-5xl mb-8">{{post.title}}</h1>
             <p class="text-gray-500 italic mb-8">{{post.excerpt}}</p>
             <p v-html="TextToHTML(post.content)" class="text-lg mb-8"></p>
@@ -40,7 +39,7 @@ export default {
         const post = ref(null);
 
         onMounted(()=>{
-            const query = `*[_type == "post" && _id == $id][0] {...,author => }`
+            const query = `*[_type == "post" && _id == $id][0] {...,author -> }`
             const params = { id : id.value }
 
             sanity.fetch(query,params).then(data => {

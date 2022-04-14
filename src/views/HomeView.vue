@@ -1,9 +1,8 @@
 <template>
   <main class="home">
     <section class="container mx-auto p-4">
-      <h1 class="text-2xl mb-8">Latest Post</h1>
       <div class="grid gap-4">
-        <PostCard v-for="(posts, i) in posts" :key="i" :post="post" />
+        <PostCard v-for="(post, i) in posts" :key="i" :post="post" />
       </div>
 
       <button v-if="$store.state.total_posts > posts.length" @click="$store.dispatch('LoadMorePosts', 3)" class="btn mt-10">

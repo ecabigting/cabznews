@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-700 min-h-screen text-white">
+  <div class="bg-gray-900 min-h-screen text-white">
     <HeaderNav />
     <SidebarNav/>
     <router-view />
@@ -20,10 +20,10 @@ export default {
 
 <style>
 .btn {
-  @apply bg-green-600 duration-300 font-bold py-3 px-4 rounded-lg inline-block;
+  @apply bg-gray-600 duration-300 font-bold py-3 px-4 rounded-lg inline-block;
 }
 
 .btn:hover {
-  @apply bg-green-700;
+  @apply bg-gray-700;
 }
 </style>

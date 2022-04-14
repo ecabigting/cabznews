@@ -12,6 +12,6 @@ export default {
 
 <style scoped>
     .router-link-exact-active {
-        @apply border-green-500 bg-gray-900
+        @apply border-gray-600 bg-gray-900
     }
 </style>

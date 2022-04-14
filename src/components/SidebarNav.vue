@@ -9,7 +9,7 @@
       <div class="-mx-4">
         <MenuItem to="/"> <span class="material-icons mr-2">home</span> Home </MenuItem>
 
-        <MenuItem to="/authors"> <span class="material-icons mr-2">groups</span> Authors </MenuItem>
+        <!-- <MenuItem to="/authors"> <span class="material-icons mr-2">groups</span> Authors </MenuItem> -->
       </div>
     </div>
   </aside>
