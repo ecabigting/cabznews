@@ -10,7 +10,12 @@
             </button>
             <h1 class="text-3xl md:text-5xl mb-8">{{post.title}}</h1>
             <p class="text-gray-500 italic mb-8">{{post.excerpt}}</p>
-            <p v-html="TextToHTML(post.content)"></p>
+            <p v-html="TextToHTML(post.content)" class="text-lg mb-8"></p>
+            <div class="flex items-center mb-4">
+                <img :src="CreateURL(post.author.avatar,300,300)"
+                class="inline-block rounded-full w-12 h-12 mr-4"/>
+                <h1>{{post.author.full_name}}</h1>
+            </div>
         </section>
         
         <section v-else>
