@@ -4,7 +4,7 @@
             <img :src="CreateURL(post.image,1280,300)" class="w-full mb-8"/>
             <button 
 				@click="$router.back()" 
-				class="flex items-center text-lg text-green-500 hover:text-green-600 duration-300 mb-4">
+				class="flex items-center text-lg text-gray-500 hover:text-gray-600 duration-300 mb-4">
 				<span class="material-icons text-lg mr-1">keyboard_double_arrow_left</span> Back
 			</button>
             <h1 class="text-3xl md:text-5xl mb-8">{{post.title}}</h1>
@@ -17,8 +17,8 @@
             </div>
         </section>
         
-        <section v-else>
-            <p class="text-white italic text-2xl">
+        <section v-else class="container mx-auto p-4 text-center">
+            <p class="text-white text-2xl mx-auto">
                 Loading...
             </p>
         </section>
