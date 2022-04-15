@@ -14,3 +14,7 @@ export const FormatDate = (date) => {
 export const TextToHTML = (text)=>{
     return text.replace(/\n/g,"<br/>")
 }
+
+export const GetPostId = (post) => {
+    return post._id;
+}

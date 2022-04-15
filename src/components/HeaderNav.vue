@@ -1,6 +1,6 @@
 <template>
   <header class="flex w-full items-center justify-center p-4">
-    <div
+    <!-- <div
       :class="`menu-toggle relative z-50
        ${menu_is_active ? 'is_active' : ''}`"
       @click="ToggleMenu"
@@ -8,7 +8,7 @@
       <div class="hamburger">
         <span></span>
       </div>
-    </div>
+    </div> -->
 
     <h1 class="text-center text-2xl uppercase font-light tracking-widest">..too late</h1>
   </header>

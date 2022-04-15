@@ -37,7 +37,7 @@ export default createStore({
     },
 
     FetchPosts({ commit }, limit = null) {
-      const query = `*[_type == "post"]{..., author->} | order(_createdAt desc) ${limit ? `[0...${limit}]` : ""}`;
+      const query = `*[_type == "post"]{..., author->} | order(_createdAt asc) ${limit ? `[0...${limit}]` : ""}`;
 
       sanity.fetch(query).then((posts) => {
         commit("SET_POSTS", posts);
